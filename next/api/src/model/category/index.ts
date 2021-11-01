@@ -75,7 +75,7 @@ export class Category {
 
   static async get(): Promise<Category[]> {
     const query = new AV.Query<AV.Object>('Category');
-    const objects = await query.find();
+    const objects = await query.limit(1000).find();
     return objects.map(Category.fromAVObject);
   }
 
